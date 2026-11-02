@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite movie</title>
+    <link  href="csspr2.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <h1>My favorite movie</h1>
+    <br>
+    <h2>Cars 2</h2>
+    <br><hr>
+    <p>Yes, I know Cars 2 is considered the weakest movie of the Cars franchise, but I like it the best. I like the fact it's more of a spy movie, and you can meet so many different cars in addition to having the main cast there. I like Mater's subplot because it kind of enhances his character and the way he feels is relatable to me.</p>
+    <p>My favorite character is Holly Shiftwell because she can fly and she's just cool. I used to have plastic figures of the cars from Cars 2 and hers was my favorite out of all of them</p>
+    <p>There is this Weezer song in the movie that I memorized the whole chorus to because of how good it was. That was my first intro to Weezer. I also reference the movie quite a bit, like calling wasabi "pistacio ice cream"</p>
+    <p>Most people won't agree with me, but I think it's the best movie in the whole franchise.</p>
+    <hr>
+    <a href="homepagepr2.html">Back to home page</a>
+        <script>
+    //copy and paste this into the other html files in this project
+        function bannerChange (){
+            let banner = document.getElementsByTagName("h1")[0];
+            banner.style.backgroundColor = "white";
+            banner.style.color = "darkRed";
+            let interval = setInterval(() => {
+                if(banner.style.backgroundColor == "white"){
+                    banner.style.backgroundColor = "darkRed";
+                    banner.style.color = "white";
+                }else{
+                    banner.style.backgroundColor = "white";
+                    banner.style.color = "darkRed"
+                }
+            }, 250);
+        }
+        bannerChange(); 
+        function faveMovie(){
+            let movie = prompt("What is your favorite movie?");
+            let name = prompt("And what is your name?");
+            let div = document.createElement("div");
+            div.style.backgroundColor = "white";
+            let divtext = document.createElement("p");
+            divtext.innerHTML = name + "'s favorite movie is " + movie;
+            divtext.style.fontWeight = "bold";
+            document.body.appendChild(div);
+            div.appendChild(divtext);
+            alert(name +"'s favorite movie is " + movie);
+        }
+        faveMovie();
+        window.addEventListener('keydown', darkmode);
+        function darkmode(event){
+            var p = document.getElementsByTagName("p");
+            if(event.key == 'ArrowDown'){
+                document.body.style.backgroundColor = "black";
+                for(var i = 0; i < p.length; i++){
+                    p[i].style.color = "white";
+                }
+            }
+        }
+        window.addEventListener('keydown', normal);
+        function normal(event){
+            var p = document.getElementsByTagName("p");
+            if(event.key == 'ArrowUp'){
+                document.body.style.backgroundColor = "";
+                for(var i = 0; i < p.length; i++){
+                    p[i].style.color = "";
+                }
+            }
+        }
+        function getRandomColor(){
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for(var i = 0; i < 6; i++){
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        function flash(){
+            var flasher = document.createElement("p");
+            flasher.innerHTML = "I decided to add a flashing disco paragraph because I thought this would make this even more cool. By anyway, lots of people don't agree that Cars 2 is the best cars movie. Everyone says that it is the first one or third one but I completely disagree. The first one is too sad imo, and the third... I just didn't want to watch it. Sorry if this is a little hard to read."
+            setInterval(function(){
+            flasher.style.color = getRandomColor();   
+            }, 250);
+            document.body.appendChild(flasher);
+        }
+        flash();
+    </script>
+</body>
+</html>

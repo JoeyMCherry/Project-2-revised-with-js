@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite place</title>
+    <link  href="csspr2.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <h1>Favorite place I ever traveled to</h1>
+    <br>
+    <h2>CANADA!!!</h2>
+    <br><hr>
+    <p>Specifically, Toronto, Ontario. We drove there and back. We also drove from Toronto to Niagara falls (Canadian side). While we were in Canada, we saw a couple hockey games from outside Scotiabank Arena (Where the Maple Leafs play)</p>
+    <p>In addition to that, we went to many restaurants, bought lots of clothes, walked around quite a bit, and took a tour in a castle! The fall leaves were really pretty! I still have some leaves that I collected from there.</p>
+    <p>We drove around a lot. Because of that, we found out that the traffic there is a bit insane. The city was suprisingly clean, which we enjoyed. We felt safe there. Because of my experience there, I decided I'd like to live there in the future for college.</p>
+    <p>I went up the CN tower which was very fun. I took a lot of photos (as the photographer that I am, naturally!)</p>
+    <img src="c:\Users\KNOBLJAS000\AppData\Local\Temp\7f4f360c-32db-4e3a-9f06-02a2d832ba7b_Photos_for_project_2.zip.a7b\344.jpg" width="300px">
+    <p><em>Here is a photo I took of Toronto when I was walking downtown</em></p>
+    <br>
+    <img src="c:\Users\KNOBLJAS000\AppData\Local\Temp\edd945ea-4714-4c25-8059-03a35f371733_Photos_for_project_2.zip.733\350.jpg" width="300px">
+    <p><em>Here is a photo I took from the CN tower overlooking downtown Toronto</em></p>
+    <div id = "leafs" style="width:400px; height:50px; margin:0 auto; padding:5px;"></div>
+    <hr>
+    <a href="homepagepr2.html">Back to home page</a>
+        <script>
+    //copy and paste this into the other html files in this project
+        function bannerChange (){
+            let banner = document.getElementsByTagName("h1")[0];
+            banner.style.backgroundColor = "white";
+            banner.style.color = "darkRed";
+            let interval = setInterval(() => {
+                if(banner.style.backgroundColor == "white"){
+                    banner.style.backgroundColor = "darkRed";
+                    banner.style.color = "white";
+                }else{
+                    banner.style.backgroundColor = "white";
+                    banner.style.color = "darkRed"
+                }
+            }, 250);
+        }
+        bannerChange(); 
+        function Leafs(){
+            let element = document.getElementById("leafs")
+            element.style.backgroundColor = "white";
+            let ldivtext = document.createElement("p");
+            ldivtext.innerHTML = "I really like the Toronto Maple Leafs hockey team!";
+            ldivtext.style.color = "darkblue";
+            ldivtext.style.fontWeight = "bold";
+            element.appendChild(ldivtext);
+            let linterval = setInterval(() => {
+                if(element.style.backgroundColor == "white"){
+                    element.style.backgroundColor = "darkblue";
+                    ldivtext.style.color = "white";
+                }else{
+                    element.style.backgroundColor = "white";
+                    ldivtext.style.color = "darkblue";
+                }
+            },500);
+        }
+        Leafs();
+        window.addEventListener('keydown', darkmode);
+        function darkmode(event){
+            var p = document.getElementsByTagName("p");
+            if(event.key == 'ArrowDown'){
+                document.body.style.backgroundColor = "black";
+                for(var i = 0; i < p.length; i++){
+                    p[i].style.color = "white";
+                }
+            }
+        }
+        window.addEventListener('keydown', normal);
+        function normal(event){
+            var p = document.getElementsByTagName("p");
+            if(event.key == 'ArrowUp'){
+                document.body.style.backgroundColor = "";
+                for(var i = 0; i < p.length; i++){
+                    p[i].style.color = "";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link  href="csspr2.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <h1>Welcome to Joey's webpage!</h1>
+    <br>
+    <h2>Links to other pages:</h2>
+    <hr>
+    <a href="faveplacespr2.html">Joey's favorite place he ever traveled to</a>
+    <br>
+    <a href="favemoviepr2.html">Joey's favorite movie</a>
+    <br>
+    <a href="favesportpr2.html">Joey's favorite sport and hobbies</a>
+    <hr>
+    <p>Feel free to check out these links and learn more about me!</p>
+    <p>Or click this conveniently placed div below!</p>
+    <div id = "clickMe" style="height:50px; width:300px; margin:0 auto; background-color:darkred; padding:5px;" onclick="divclick(this)">
+        <p style="color:lightpink" id="changingText">Yea, click this!</p>
+    </div>
+    <br>
+    <h2>Click the down arrow key to make the website go into dark mode. Click the up mode to bring it back. Note, this only changes the text color and background color, not headings or divs.</h3>
+    <script>
+    //copy and paste this into the other html files in this project
+        function bannerChange (){
+            let banner = document.getElementsByTagName("h1")[0];
+            banner.style.backgroundColor = "white";
+            banner.style.color = "darkRed";
+            let interval = setInterval(() => {
+                if(banner.style.backgroundColor == "white"){
+                    banner.style.backgroundColor = "darkRed";
+                    banner.style.color = "white";
+                }else{
+                    banner.style.backgroundColor = "white";
+                    banner.style.color = "darkRed"
+                }
+            }, 250);
+        }
+        bannerChange(); 
+        function divclick(element){
+            element.style.backgroundColor = "lightblue";
+            element.style.height = "100px";
+            element.style.width = "600px";
+            var divp = document.getElementById("changingText");
+            divp.innerHTML = "Whoa! You turned this div blue, made it bigger, and you changed the text... ALL BY JUST CLICKING IT!";
+            divp.style.color = "darkblue";
+        }
+        window.addEventListener('keydown', darkmode);
+        function darkmode(event){
+            var p = document.getElementsByTagName("p");
+            if(event.key == 'ArrowDown'){
+                document.body.style.backgroundColor = "black";
+                for(var i = 0; i < p.length; i++){
+                    p[i].style.color = "white";
+                }
+            }
+        }
+        window.addEventListener('keydown', normal);
+        function normal(event){
+            var p = document.getElementsByTagName("p");
+            if(event.key == 'ArrowUp'){
+                document.body.style.backgroundColor = "";
+                for(var i = 0; i < p.length; i++){
+                    p[i].style.color = "";
+                }
+            }
+        } 
+        var anotherText = document.createElement("p");
+        anotherText.innerHTML = "Fun fact! This dark mode feature works all throughout the website! Try it out!";
+        document.body.appendChild(anotherText);
+    </script>
+</body>
+</html>

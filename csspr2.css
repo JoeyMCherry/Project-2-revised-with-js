@@ -1,0 +1,35 @@
+*{
+    font-family: Helvetica;
+    text-align:center;
+}
+html{
+    background-color:rgb(247, 213, 218);
+}
+h2{
+    color:white;
+    background-color:darkred;
+}
+p{
+    color:darkred;
+}
+li{
+    color:darkred;
+    text-align:left;
+}
+li:hover{
+    color:white;
+    background-color:red;
+}
+hr{
+    color:red;
+}
+a{
+    color:red;
+}
+html,body{
+    min-height: 100%;
+    margin:0
+}
+body{
+    min-height:100vh;
+}
